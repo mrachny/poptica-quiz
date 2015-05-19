@@ -41,14 +41,32 @@ if(!Array.indexOf){
         var opts = $.extend({}, $.fn.quizyMemoryGame.defaults, options);
 
         // keeps the number of cards
+        // $('input[name=radioName]:checked', '#myForm').val()
+        //var maxItems=4;
+        var maxItems =6;
+
+        var allLength = $(this).children('ul').children('li').length;
+        //var idToHide = Array();
+        var randArray = Array();
+
+        $($(this).children('ul').children('li')).each(function(index,el){
+          randArray.push(index);
+        });
+
+        for(var indItem=0;indItem <  maxItems; indItem++){
+          //Math.floor((Math.random() * 10) + 1); 
+          var currentLength = randArray.length;
+          var indexToHide = Math.floor(Math.random()* currentLength/2 );
+          randArray.splice(indexToHide,1);
+          randArray.splice(parseInt(indexToHide + allLength/2),1);          
+        }
+        $(randArray).each(function(){
+          $('#tutorial-memorygame').children('ul').children('li.match'+ this.toString()).remove();
+          //$(this).children('ul').children('li.match'+ this).remove();
+        });
+
         var itemsNum = $(this).children('ul').children('li').length;
-		var maxItems=12;
-		$(this).children('ul').children('li').each(function(index,ui){
-		//if(index>maxItems){
-				$('.'+ui.className).remove();
-				console.log('remove ui',ui.className);
-			//}
-		});
+	
 		
         // we keep here the selected correct items (after we have a match)
         var correctItems = new Array();
@@ -90,6 +108,7 @@ if(!Array.indexOf){
 		
         // FUNCTIONS **************************************************************
         // ************************************************************************
+        // 
 
         // A function to handle the element click
         var handleClick = function(e){
@@ -237,6 +256,8 @@ if(!Array.indexOf){
           }      
         }
 
+
+
         //shows and hids the correct/wrong message after an action
         var showResIcon = function(type){
           if(opts.resultIcons){
@@ -284,6 +305,7 @@ if(!Array.indexOf){
         // and creates an empty inner html array
 				if(random){
 					var ranArr = Array();
+          var itemsLength = $(this).children('ul').children('li').length;
 	        for(var j=0; j< itemsNum; j++){
 	          inHtml[j] = '';
 	          ranArr.push(j);

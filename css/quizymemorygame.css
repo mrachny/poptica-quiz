@@ -11,9 +11,9 @@
 
 /* styles of the card to show */
 .quizy-memorygame .mgcard-show{
-  width:156px;
-  height:156px;
-  background:url('img/mg-mcard.png');
+  width:250px;
+  height:177px;
+  background:url('img/quizy-mg-item-top.png');
 }
 
 .quizy-memorygame .quizy-mg-item{
@@ -93,18 +93,18 @@
 }
 
 
-#quizy-game-summary #gs-closebut,
+#quizy-game-summary #gs-closebut,#quizy-game-summary #gs-popticabut,
 #quizy-game-summary #gs-replaybut{
   display: inline-block;
   margin-top: 10px;
-  width: 70px;
+  width: 100px;
   padding: 10px;
   text-align: center;
   background: #D7EEF0;
   cursor: pointer;
 }
 
-#quizy-game-summary #gs-closebut:hover, 
+#quizy-game-summary #gs-closebut:hover,#quizy-game-summary #gs-popticabut:hover
 #quizy-game-summary #gs-replaybut:hover{
   background: #fff;
 }
