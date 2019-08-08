@@ -7,7 +7,6 @@ The QuizY Memory Card Game plugin is a jQuery plugin, which allows the creation 
 
 [Demo and Documentation](http://memorygame.quizyplugin.com/)
 
-
 ### Usage ###
 
 Download the [plugin](https://github.com/frenski/quizy-memorygame) and include all the necessary files before the closing body tag.
